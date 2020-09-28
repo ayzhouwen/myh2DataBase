@@ -1,0 +1,49 @@
+logging:
+  file: log/collect.log
+  config: classpath:logback.xml
+  level:
+    com.zw: debug
+
+# DataSource Config
+spring:
+  datasource:
+    driver-class-name: org.h2.Driver
+    schema: classpath:db/schema-h2.sql
+    data: classpath:db/data-h2.sql
+    url: jdbc:h2:mem:test
+    username: root
+    password: test
+  h2:
+    console:
+      settings.web-allow-others: true
+      #配置访问地址
+      path: /h2-console
+      #配置项目启动 h2就启动
+      enabled: true
+
+  thymeleaf:
+    servlet:
+      content-type: text/html
+    cache: false
+    mode: HTML
+    encoding: UTF-8
+    prefix: classpath:/templates/
+    suffix: .html
+
+server:
+  port: 8080
+  compression:
+    min-response-size: 512
+    enabled: true
+    mime-types: application/json,application/xml,text/html,text/plain,text/css,application/x-javascript
+
+
+
+
+
+
+
+
+
+
+
